@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Track App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login/Register Form -->
+        <div id="auth-section" class="section">
+            <div class="auth-container">
+                <h1>Health Track</h1>
+                <div class="auth-tabs">
+                    <button id="login-tab" class="tab-btn active">Login</button>
+                    <button id="register-tab" class="tab-btn">Register</button>
+                </div>
+                
+                <form id="auth-form">
+                    <div id="register-fields" style="display: none;">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                        <input type="date" id="dateOfBirth" required>
+                        <select id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <button type="submit" id="auth-btn">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard-section" class="section" style="display: none;">
+            <header>
+                <h1>Health Dashboard</h1>
+                <div class="user-info">
+                    <span id="user-name"></span>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </header>
+
+            <nav class="nav-tabs">
+                <button class="nav-btn active" data-tab="health">Health Records</button>
+                <button class="nav-btn" data-tab="medications">Medications</button>
+                <button class="nav-btn" data-tab="stats">Statistics</button>
+            </nav>
+
+            <!-- Health Records Tab -->
+            <div id="health-tab" class="tab-content active">
+                <div class="add-record">
+                    <h3>Add Health Record</h3>
+                    <form id="health-form">
+                        <select id="health-type" required>
+                            <option value="">Select Type</option>
+                            <option value="weight">Weight</option>
+                            <option value="blood_pressure">Blood Pressure</option>
+                            <option value="heart_rate">Heart Rate</option>
+                            <option value="blood_sugar">Blood Sugar</option>
+                            <option value="temperature">Temperature</option>
+                            <option value="exercise">Exercise</option>
+                            <option value="sleep">Sleep</option>
+                        </select>
+                        <input type="text" id="health-value" placeholder="Value" required>
+                        <input type="text" id="health-unit" placeholder="Unit" required>
+                        <textarea id="health-notes" placeholder="Notes (optional)"></textarea>
+                        <button type="submit">Add Record</button>
+                    </form>
+                </div>
+                <div id="health-records" class="records-list"></div>
+            </div>
+
+            <!-- Medications Tab -->
+            <div id="medications-tab" class="tab-content">
+                <div class="add-medication">
+                    <h3>Add Medication</h3>
+                    <form id="medication-form">
+                        <input type="text" id="med-name" placeholder="Medication Name" required>
+                        <input type="number" id="med-amount" placeholder="Dosage Amount" required>
+                        <input type="text" id="med-unit" placeholder="Unit (mg, ml, etc.)" required>
+                        <input type="number" id="med-times" placeholder="Times per day" required>
+                        <input type="time" id="med-reminder" placeholder="Reminder Time" required>
+                        <input type="date" id="med-start" required>
+                        <input type="date" id="med-end" placeholder="End Date (optional)">
+                        <textarea id="med-instructions" placeholder="Instructions"></textarea>
+                        <button type="submit">Add Medication</button>
+                    </form>
+                </div>
+                <div id="medications-list" class="records-list"></div>
+            </div>
+
+            <!-- Statistics Tab -->
+            <div id="stats-tab" class="tab-content">
+                <h3>Health Statistics</h3>
+                <div id="stats-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
