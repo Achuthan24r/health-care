@@ -1,7 +1,12 @@
 class HealthTrackApp {
   constructor() {
-        this.token = localStorage.getItem('token');
-        this.user = JSON.parse(localStorage.getItem('user') || '{}');
+    this.token = localStorage.getItem("token");
+    this.user = JSON.parse(localStorage.getItem("user") || "{}");
+    // API base URL - change this to your deployed backend URL
+    this.apiBaseUrl =
+      window.location.hostname === "localhost"
+        ? ""
+        : "https://your-railway-backend-url.up.railway.app"; // Replace with your actual Railway URL
     this.init();
   }
 
